@@ -1,0 +1,19 @@
+# set up base image -- alpine is a light weight linux OS with all needed package indices - 5MB 
+FROM alpine
+
+LABEL elvissegbawu <elvissegbawu@gmail.com>
+
+
+# install a software -- install gradle here
+#  -- add cdn/repository for package
+RUN echo 'https://services.gradle.org/distributions/' >> /etc/apk/repositories
+
+# -- update apk to see newly added cdn/repository
+RUN apk update
+
+# install package 
+RUN apk add gradle=gradle-8.0-milestone-3-bin.zip
+
+# configure gradle if needed
+
+# set up default commands
